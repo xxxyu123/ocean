@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>阅读海洋</title>
+    <link rel="stylesheet" href="../css/homePage.css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+    <div id="app">
+        <img class="ocean" src="../img/ocean.jpg" alt="">
+        <div class="black">
+            <nav>
+                <img src="../img/logo.png" alt="no found">
+                <div class="user">
+                    <img src="../img/tx.jpg">
+                </div>
+            </nav>
+        </div>
+
+        <div class="search">
+            <div class="search-font">搜索图书</div>
+            <div class="search-box">
+                <input type="text">
+                <button></button>
+            </div>
+        </div>
+
+    </div>
+    <div class="select">
+        <a href="homePage.html" style="color: #0064f9;">首页</a>
+        <a href="task.html">发布任务</a>
+        <a href="recommend.html">书香门第</a>
+        <a href="community.html">作品社区</a>
+        <a href="#">海洋世界</a>
+        <a href="course.html">名师微课</a>
+        <a href="answer.html">故事新编</a>
+        <a href="teacherRead.html">教师阅读</a>
+    </div>
+    <div class="row">
+        <div class="left">
+            <div class="left-black">
+                <div class="userinfo">
+                    <img class="userPhoto" src="../img/tx.jpg" alt="">
+                    <div class="userName">姓名：{{userName}}</div>
+                    <div class="userSchool">学校：{{userSchool}}</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="right">
+            <div class="right-background">
+                <div class="myClass">我的班级</div>
+                <div class="list">
+                    <div class="list-1">
+                        <div class="list-title">积分榜</div>
+                        <ul class="overflow-y">
+                            <li v-for="(item,index) in list ">
+                                <div class="num">{{index+1}}</div>{{item}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list-2">
+                        <div class="list-title">书香榜</div>
+                        <ul class="overflow-y">
+                            <li v-for="(item,index) in list2 ">
+                                <div class="num">{{index+1}}</div>{{item}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="popularBook">
+        <div class="bookTitle">热门图书</div>
+        <ul class="row3">
+
+            <li class="p-book" v-for="item2 in books">
+                <img :src="item2.bookimg" alt="">
+                <div class="bookbox">
+
+                    <div class="book-info">
+                        <div class="b-name">{{item2.name}}</div>
+                        <div class="b-author">作者：{{item2.author}}</div>
+                        <div class="b-cbs">出版社：{{item2.cbs}}</div>
+                        <div class="b-time">发行时间：{{item2.time}}</div>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+    <div class="activity">
+        <div class="bookTitle">局域竞赛</div>
+        <ul class="row4">
+            <li v-for="(item,index) in activity">
+                <div class="activity-box">
+                    <div class="sj">
+                        <div class="sj-num">{{index+1}}</div>
+                    </div>
+                    <div class="place">{{item.place}}</div>
+                    <div class="place-num">发布任务总数：{{item.sum}}</div>
+                    <div class="ph-font">
+                        <div class="ph-ph">1、{{item.ph1}}</div>
+                        <div class="ph-ph">2、{{item.pj2}}</div>
+                        <div class="ph-ph">3、{{item.ph3}}</div>
+                    </div>
+
+                </div>
+
+            </li>
+        </ul>
+
+
+    </div>
+    <div class="more">
+        <a href="../html/activity.html"><img src="../img/xia.png" alt=""></a>
+    </div>
+
+
+
+
+
+    <div class="fixed"></div>
+
+
+
+
+
+
+
+
+    <script src="../vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '.userinfo',
+            data: {
+
+                userPhoto: '',
+                userName: '监测',
+                userSchool: '珠海香洲第一小学',
+            },
+        })
+        const app2 = new Vue({
+            el: '.row',
+            data: {
+                userPhoto: 'overflow-y',
+                list: ['四年级 一班', '四年级 二班', '四年级 八班', '四年级 六班', '四年级七班', '六年级 测试班级', '四年级 五班', '四年级 三班', '四年级 四班', '五年级 测试班级'],
+                list2: ['四年级 一班', '四年级 二班', '四年级 八班', '四年级 六班', '四年级七班', '六年级 测试班级', '四年级 五班', '四年级 三班', '四年级 四班', '五年级 测试班级'],
+            },
+        })
+        const app3 = new Vue({
+            el: '.row3',
+            data: {
+
+                books: [{
+                    bookimg: '../img/book/lbqdhlbb.png',
+                    name: '了不起的狐狸爸爸',
+                    author: '(美国)罗德尔·达尔/著，代维/译',
+                    cbs: '明天出版社',
+                    time: '2009-03-01',
+                }, {
+                    bookimg: '../img/book/atsth.png',
+                    name: '安徒生童话',
+                    author: '(丹麦)安徒生 著，叶君健 译',
+                    cbs: '人民文学出版社',
+                    time: '1992-04-01',
+                }, {
+                    bookimg: '../img/book/qadhsxs.png',
+                    name: '亲爱的汉修先生',
+                    author: '贝芙莉·克莱瑞',
+                    cbs: '新蕾出版社',
+                    time: '2006-03-01',
+                }, {
+                    bookimg: '../img/book/xzxlhl.png',
+                    name: '小猪唏哩呼噜',
+                    author: '孙幼军 著，裘兆明 图',
+                    cbs: '春风文艺出版社',
+                    time: '2008-11-01',
+                }, {
+                    bookimg: '../img/book/lbxplj.png',
+                    name: '鲁宾逊漂流记',
+                    author: '(英国)笛福/著，徐霞村/译',
+                    cbs: '人民文学出版社',
+                    time: '2008-06-01',
+                }, {
+                    bookimg: '../img/book/xldw.png',
+                    name: '夏洛的网',
+                    author: 'E.B.怀特\E.B.White',
+                    cbs: '上海译文出版社',
+                    time: '2004-05-01',
+                }, {
+                    bookimg: '../img/book/cfz.png',
+                    name: '草房子',
+                    author: '曹文轩/ 著',
+                    cbs: '江苏少年儿童出版社',
+                    time: '2009-06-01',
+                }, {
+                    bookimg: '../img/book/lyxz.png',
+                    name: '绿野仙踪',
+                    author: '(美)弗兰克•鲍姆 著 陈伯吹 译',
+                    cbs: '长春出版社',
+                    time: '2009-07-01',
+                }, ]
+            },
+        })
+        const app4 = new Vue({
+            el: '.row4',
+            data: {
+                activity: [{
+                    place: '广东',
+                    sum: '2775',
+                    ph1: '珠海',
+                    pj2: '东莞',
+                    ph3: ''
+                }, {
+                    place: '北京',
+                    sum: '27',
+                    ph1: '东城',
+                    pj2: '',
+                    ph3: ''
+                }, {
+                    place: '江苏',
+                    sum: '2',
+                    ph1: '苏州',
+                    pj2: '',
+                    ph3: ''
+                }, {
+                    place: '吉林',
+                    sum: '1',
+                    ph1: '通化',
+                    pj2: '',
+                    ph3: ''
+                }, {
+                    place: '福建',
+                    sum: '1',
+                    ph1: '厦门',
+                    pj2: '',
+                    ph3: ''
+                }, {
+                    place: '湖南',
+                    sum: '1',
+                    ph1: '益阳',
+                    pj2: '',
+                    ph3: ''
+                }, {
+                    place: '四川',
+                    sum: '1',
+                    ph1: '成都',
+                    pj2: '',
+                    ph3: ''
+                }, {
+                    place: '天津',
+                    sum: '0',
+                    ph1: '',
+                    pj2: '',
+                    ph3: ''
+                }, ]
+            },
+        })
+    </script>
+</body>
+
+</html>

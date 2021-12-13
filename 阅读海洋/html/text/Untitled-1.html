@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>阅读海洋</title>
+    <link rel="stylesheet" href="" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" placeholder="请输入搜索内容" v-model="search">
+        <p v-for="(item, index) in searchMethod" :key="index">{{ item.name }}</p>
+
+
+    </div>
+
+    <script src="../../vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                //orgList:搜索后显示的列表，初始值应该从后台拿取
+                arr: [{
+                    name: 'qq',
+                    baz: '1'
+                }, {
+                    name: 'qq2',
+                    baz: '12'
+                }, {
+                    name: 'q3q',
+                    baz: '13'
+                }, {
+                    name: 'qq4',
+                    baz: '14'
+                }, {
+                    name: 'qq5',
+                    baz: '15'
+                }, {
+                    name: 'qq6',
+                    baz: '16'
+                }, {
+                    name: 'qq7',
+                    baz: '17'
+                }, {
+                    name: 'qq8',
+                    baz: '18'
+                }, {
+                    name: 'qq9',
+                    baz: '19'
+                }, ],
+                search: '',
+            },
+            computed: {
+                searchMethod() {
+                    return this.arr.filter(value => {
+                        return value.name.match(this.search)
+                    })
+                }
+            },
+        })
+    </script>
+
+</body>

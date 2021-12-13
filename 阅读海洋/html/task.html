@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>阅读海洋</title>
+    <link rel="stylesheet" href="../css/task.css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+    <div id="app">
+        <img class="ocean" src="../img/ocean.jpg" alt="">
+        <div class="black">
+            <nav>
+                <img src="../img/logo.png" alt="no found">
+                <div class="user">
+                    <img src="../img/tx.jpg">
+                </div>
+            </nav>
+        </div>
+
+        <!-- <div class="search">
+            <div class="search-font">搜索图书</div>
+            <div class="search-box">
+                <input type="text">
+                <button></button>
+            </div>
+        </div> -->
+
+    </div>
+    <div class="select">
+        <a href="homePage.html">首页</a>
+        <a href="task.html" style="color: #0064f9;">发布任务</a>
+        <a href="recommend.html">书香门第</a>
+        <a href="community.html">作品社区</a>
+        <a href="#">海洋世界</a>
+        <a href="course.html">名师微课</a>
+        <a href="answer.html">故事新编</a>
+        <a href="teacherRead.html">教师阅读</a>
+    </div>
+    <div class="taskInfo">
+        <div class="infoTitle">发布阅读任务</div>
+
+        <div class="infoFont">任务题目：</div><input type="text" class="infoText" placeholder="请输入题目">
+        <div class="infoFont">选择任务(可多选)：</div>
+        <ul class="taskType">
+            <li v-for="item in taskInfo" class="infolist">
+                <label :for="item">
+                    <input type="checkbox" :id="item" :value="item" v-model="getValue" > {{item}}
+                </label>
+
+            </li>
+        </ul>
+        <div class="clearfloat"></div>
+        <div class="infoFont">任务描述(必填)：</div>
+        <textarea class="textarea" placeholder="请输入你要发布的任务描述，不要超过225个字"></textarea>
+        <div class="infoFont">已选择任务：{{getValue | changeValue}}</div>
+        <div class="infoFont">1.选择任务对象(必选)：</div>
+        <div class="taskmember">
+            <div class="memberClass">
+                <ul>
+                    <li v-for="item in classes">
+                        <div class="classbox">{{item}}</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="member">
+                <div class="memSearch">
+                    <div class="searchbox">
+                        <input type="text" placeholder="搜索学生">
+                        <button style="background: url(../img/search.png)no-repeat;background-size: cover;"></button>
+
+                    </div>
+
+                </div>
+                <div class="student">
+                    <ul>
+                        <li v-for="item in fourClass">
+                            <label :for="item">
+                                <input type="checkbox" :id="item" :value="item" v-model="getStudent">{{item}}
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <!-- {{getStudent | changeValue}} -->
+            </div>
+        </div>
+        <div class="infoFont">2.选择阅读书籍(必选)：</div>
+        <div class="selectBook">
+            <button class="updataBook"></button>
+        </div>
+        <div class="infoFont">3.选择时间(必选)：</div>
+        <div class="selectTime">
+            <div class="time">
+                开始时间：<input type="date">
+            </div>
+            <div class="time">
+                结束时间：<input type="date">
+            </div>
+        </div>
+        <div class="up"><button class="uploading">发布任务</button></div>
+
+    </div>
+
+    <script src="../vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '.taskInfo',
+            methods: {
+                unfold() {
+
+                }
+            },
+            data: {
+                isAgree: [],
+                taskInfo: [
+                    '朗读',
+                    '读后感',
+                    '答题',
+                    '思维导图',
+                    '插画',
+                    '笔记',
+                    '短评',
+                    '背诵',
+                ],
+                classes: ['四年级一班', '四年级二班', '四年级八班', '四年级六班', '四年级七班', '六年级测试班级', '四年级五班', '四年级三班', '四年级四班', '五年级测试班级', ],
+                fourClass: ['黎子男', '胡旅冰', '黄静宜', '陈锦菱', '毛雅琳', '陈茂珊', '邓圣垲', '韦玥芯', '许子轩', '黄子洛', '高蓝青', '杨骐铭', '乔汉纾', '黄佳泠', '王芷宜', '史文淇', '吴翼萱', '李嫣然', '刘若蓝', '林杰', '郭奕婷', '邓雅欣', '崔逸臣', '郑峻熙', '曾子嫣', '毛雨珉', '李幸和', '滕致', '王俊皓', '苏一灐', '王梓聿', '方添锦', '黄佳淇', '刘茁翼', '崔子睿', '肖芷柔', '叶姿均', '叶锶蕊', '张奕晨', '甘正', '王淅', '骆图晟', '王子涵', '曾凡荣', '刘壮翼', '高健钊', '黄悦宸', '潘德林', '梁颢腾', '吴家辉', '宾雪'],
+                getValue: [],
+                getStudent: [],
+            },
+            filters: {
+                changeValue(type) {
+                    return type.toString().replace(/"([^"]*)"/g, '');
+                }
+            }
+        })
+    </script>
+</body>

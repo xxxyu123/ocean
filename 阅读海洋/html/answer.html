@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>阅读海洋</title>
+    <link rel="stylesheet" href="../css/answer.css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+    <div id="app">
+        <img class="ocean" src="../img/ocean.jpg" alt="">
+        <div class="black">
+            <nav>
+                <img src="../img/logo.png" alt="no found">
+                <div class="user">
+                    <img src="../img/tx.jpg">
+                </div>
+            </nav>
+        </div>
+
+        <div class="search">
+            <div class="search-font">搜索最新创作</div>
+            <div class="search-box">
+                <input type="text">
+                <button></button>
+            </div>
+        </div>
+
+    </div>
+    <div class="select">
+        <a href="homePage.html">首页</a>
+        <a href="task.html">发布任务</a>
+        <a href="recommend.html">书香门第</a>
+        <a href="community.html">作品社区</a>
+        <a href="#">海洋世界</a>
+        <a href="course.html">名师微课</a>
+        <a href="answer.html" style="color: #0064f9;">故事新编</a>
+        <a href="teacherRead.html">教师阅读</a>
+    </div>
+    <div class="selectbook">
+        <div class="selectbox">
+            <div class="selecttype">最新创作</div>
+            <div class="bottom"></div>
+
+        </div>
+        <div class="selectbox">
+            <div class="selecttype">热门创作</div>
+
+
+        </div>
+
+    </div>
+
+    <div class="bookpage">
+        <div id="pages">
+            <ul>
+                <li v-for="user in newUser" :key="user.id">
+                    <img :src="user.img" alt="">
+                    <div class="rightbox">
+                        <div class="topbox">
+                            <span class="username">{{user.name}}</span>
+                            <span class="usertime">{{user.time}}</span>
+                        </div>
+                        <div class="useranswer">{{user.answer}}</div>
+
+                    </div>
+                    <button class="answerBtn1">忽略该问题</button>
+                    <button class="answerBtn2">点击查看/回答问题</button>
+                </li>
+            </ul>
+
+            <!--  这里绑定总页数    父组件传过来参数 复用件接收后判断如果为true执行css样式  -->
+            <p-pagination :pages=showUsers @click-pag="fn" :page='uPage'> </p-pagination>
+
+        </div>
+    </div>
+
+
+    <script src="../vue.js"></script>
+
+    <script>
+        Vue.component("p-pagination", {
+            template: `
+                        <div class="pagination">    
+                            <a href="javascript:;" @click='deduction'>上一页</a>  
+
+                            <a href="javascript:;" v-for="pag in pages" @click="goto(pag)"                         
+                            :class="{active: pag === page}"
+                            >{{pag}}</a>
+
+                            <a href="javascript:;" @click='score'>下一页</a>   
+                        </div>                                           
+                      `,
+            props: ['pages', 'page'], //接收参数 
+            methods: {
+                goto(pag) { //点击按钮给父组件传参  这里的参数也可以直接使用pag
+                    this.$emit("click-pag", pag);
+                    // console.log(this.pages);
+                    console.log(this.page)
+                },
+                // 上一页
+                deduction() {
+                    if (this.page - 1 > 0) {
+                        this.$emit("click-pag", this.page - 1);
+                    } else {
+                        this.page = 1
+                    }
+                },
+                // 下一页
+                score() { //若果是最后一页 
+                    if (this.page >= this.pages) {
+                        this.page = this.pages
+                    } else {
+                        this.$emit("click-pag", this.page + 1);
+                    }
+                },
+            }
+        });
+
+        const app = new Vue({
+            el: '#pages',
+            data: {
+                users: [{
+                        id: 1,
+                        name: '学生甲',
+                        img: '../img/tx.png',
+                        answer: '我是一个问题',
+                        time: '2021-05-26 12:04'
+                    }, {
+                        id: 2,
+                        name: '学生甲',
+                        img: '../img/tx.png',
+                        answer: '我是一个问题',
+                        time: '2021-05-26 12:04'
+                    }, {
+                        id: 3,
+                        name: '学生甲',
+                        img: '../img/tx.png',
+                        answer: '我是一个问题',
+                        time: '2021-05-26 12:04'
+                    }, {
+                        id: 4,
+                        name: '学生甲',
+                        img: '../img/tx.png',
+                        answer: '我是一个问题',
+                        time: '2021-05-26 12:04'
+                    }, {
+                        id: 5,
+                        name: '学生甲',
+                        img: '../img/tx.png',
+                        answer: '我是一个问题',
+                        time: '2021-05-26 12:04'
+                    }, {
+                        id: 6,
+                        name: '学生甲',
+                        img: '../img/tx.png',
+                        answer: '我是一个问题',
+                        time: '2021-05-26 12:04'
+                    }, {
+                        id: 7,
+                        name: '学生甲',
+                        img: '../img/tx.png',
+                        answer: '我是一个问题',
+                        time: '2021-05-26 12:04'
+                    }, {
+                        id: 8,
+                        name: '学生甲',
+                        img: '../img/tx.png',
+                        answer: '我是一个问题',
+                        time: '2021-05-26 12:04'
+                    }, {
+                        id: 9,
+                        name: '学生甲',
+                        img: '../img/tx.png',
+                        answer: '我是一个问题',
+                        time: '2021-05-26 12:04'
+                    }, {
+                        id: 10,
+                        name: '学生甲',
+                        img: '../img/tx.png',
+                        answer: '我是一个问题',
+                        time: '2021-05-26 12:04'
+                    }, {
+                        id: 11,
+                        name: '学生甲',
+                        img: '../img/tx.png',
+                        answer: '我是一个问题',
+                        time: '2021-05-26 12:04'
+                    },
+
+                ],
+                uPage: 1, //当前页
+                perPage: 10, //每页显示多少条
+            },
+            computed: {
+                // 获取总页数 
+                showUsers: {
+                    get() {
+                        return Math.ceil(this.users.length / this.perPage);
+                    }
+                },
+                newUser: { //渲染到页面
+                    get() { // 分割数据
+                        return JSON.parse(JSON.stringify(this.users)).splice((this.uPage - 1) * this.perPage, this.perPage)
+                    }
+                },
+            },
+
+            methods: {
+                fn(n) {
+                    // console.log(n)
+                    this.uPage = n; //接收到 子组件传过来的数据 修改data的显示
+                },
+
+            },
+        })
+        const app2 = new Vue({
+            el: '.typeright',
+            data: {
+                booktype: ['诗歌', '自然', '绘本', '童话', '神话', '文史', '教学', '小说', '名著', '名人传记', ]
+
+
+            }
+        })
+    </script>
+</body>

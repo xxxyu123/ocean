@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>阅读海洋</title>
+    <link rel="stylesheet" href="../css/bookinfo.css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+    <div id="app2">
+        <div id="app">
+            <img class="ocean" src="../img/ocean.jpg" alt="">
+            <div class="black">
+                <nav>
+                    <img src="../img/logo.png" alt="no found">
+                    <div class="user">
+                        <img src="../img/tx.jpg">
+                    </div>
+                </nav>
+            </div>
+
+            <div class="search">
+                <div class="search-font">搜索图书</div>
+                <div class="search-box">
+                    <input type="text">
+                    <button></button>
+                </div>
+            </div>
+
+        </div>
+        <a href="recommend.html"><img class="hui" src="../img/hui.png" alt=""></a>
+        <div class="bookinfo">
+            <div class="top">
+                <div class="top-left">
+
+                    <img :src="book.img" alt="">
+                </div>
+                <div class="top-middle">
+                    <div class="middlebox">
+                        <div class="middle-font1">{{book.name}}</div>
+                        <div class="middle-font2">作者：{{book.author}}</div>
+                        <div class="middle-font2">出版社：{{book.cbs}}</div>
+                        <div class="middle-font2">发行时间：{{book.time}}</div>
+                        <div class="flex">
+                            <div class="middle-font3">{{book.reading}}人正在阅读</div>
+                            <div class="middle-font3">{{book.readed}}人读过</div>
+                        </div>
+                        <div class="flex">
+                            <button class="btn1">微课视频</button>
+                            <button class="btn2">已完成</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-right">
+                    <div class="animalfont">目标海洋生物： {{book.animal.name}}</div>
+                    <div><img :src="book.animal.img" alt=""></div>
+                </div>
+            </div>
+            <div class="title">简介 · · · · · ·</div>
+            <div class="middle">{{book.introduce}}</div>
+            <div class="title">编辑推荐 · · · · · ·</div>
+            <div class="bottom">{{book.recommend}}</div>
+            <div class="db"></div>
+        </div>
+    </div>
+    <script src="../vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app2',
+            data: {
+                book: {
+                    img: '../img/book/lbqdhlbb.png',
+                    name: '了不起的狐狸爸爸',
+                    cbs: '明天出版社',
+                    time: '2009-03-01',
+                    author: '（美国）罗尔德·达尔/著，代维/译',
+                    animal: {
+                        img: '../img/animal/fish.gif',
+                        name: '接吻鱼：蓝红'
+                    },
+                    reading: '1873',
+                    readed: '3765',
+                    state: '已完成',
+                    record: [{
+                        time: '2018-09-11',
+                        correct: '60%',
+                        usetime: '16秒'
+                    }, {
+                        time: '2018-04-16',
+                        correct: '40%',
+                        usetime: '18秒'
+                    }, {
+                        time: '2018-04-16',
+                        correct: '40%',
+                        usetime: '31秒'
+                    }, ],
+                    introduce: '博吉斯、邦斯和比恩是你所能遇到的最卑鄙、最小气的人，他们憎恨狐狸先生，决定把他全家除掉。于是，这三个人拿着枪，阴险地等在狐狸先生的洞外……但狐狸先生自有对付他们的妙计！于是，一场智慧和力量的较量开始了……三个凶狠贪婪的饲养场主和狐狸一家追捕与反追捕的故事，被罗尔德•达尔用异常轻松的笔调讲来，让人读了爱不释手。',
+                    recommend: '世界奇幻文学大师的经典作品，一本孩子们不能不看的趣味童话集锦。这本《了不起的狐狸爸爸》通过一个个生动的童话故事，把孩子们带入一个个奇幻而又快乐的美妙世界，相信读完后的你不仅能从中感受到快乐，还定会获益匪浅。',
+                }
+            },
+        })
+    </script>
+</body>

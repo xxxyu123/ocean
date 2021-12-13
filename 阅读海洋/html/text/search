@@ -1,0 +1,17 @@
+<div class="showBlog">
+    <h1>Blog post</h1>
+    <!-- 搜索框 -->
+    <input type="text" v-model="search" placeholder="搜索blog标题" v-if="flag" class="search">
+    <input type="text" v-model="search" placeholder="搜索blog内容" v-if="!flag" class="search">
+
+    <!-- 切换搜索模式 -->
+    <button @click="searchMode" class="searchMode"></button>
+
+    <!-- 博客遍历展示区域 -->
+    <div v-for="(item,index) in searchResults" :key="index" class="blog">
+        <img src="../assets/3.png" alt="">
+        <h2>{{item.articleTitle}}</h2>
+        <div class="content">{{item.content}}</div>
+        <button @click="remove(index)" class="delete"></button>
+    </div>
+</div>

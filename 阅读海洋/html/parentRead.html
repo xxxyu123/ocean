@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>阅读海洋</title>
+    <link rel="stylesheet" href="../css/parentRead.css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+    <div id="app">
+        <img class="ocean" src="../img/ocean.jpg" alt="">
+        <div class="black">
+            <nav>
+                <img src="../img/logo.png" alt="no found">
+                <div class="user">
+                    <img src="../img/tx.jpg">
+                </div>
+            </nav>
+        </div>
+
+        <!-- <div class="search">
+            <div class="search-font">搜索图书</div>
+            <div class="search-box">
+                <input type="text">
+                <button></button>
+            </div>
+        </div> -->
+
+    </div>
+    <div class="select">
+        <a href="homePage.html">首页</a>
+        <a href="task.html">发布任务</a>
+        <a href="#">书香门第</a>
+        <a href="#">作品社区</a>
+        <a href="#">海洋世界</a>
+        <a href="#">名师微课</a>
+        <a href="#">故事新编</a>
+        <a href="#" style="color: #0064f9;">教师阅读</a>
+    </div>
+    <div class="box">
+        <div class="word">推荐词：
+            <span>{{font}}</span>
+        </div>
+    </div>
+    <div class="parent">
+        <a href="teacherRead.html"><img src="../img/change.png" alt="">
+
+            <div class="parentinfo">教师阅读情况</div>
+        </a>
+    </div>
+    <div class="teabook">
+        <ul>
+            <li v-for="item2 in book">
+                <img :src="item2.img" alt="" />
+                <div>
+                    <div>{{item2.name}}</div>
+                    <div class="flex">
+                        <div>讨论：{{item2.data1}}</div>
+                        <div>点赞：{{item2.data2}}</div>
+                    </div>
+                </div>
+
+
+            </li>
+        </ul>
+    </div>
+    <script src="../vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '.box',
+            data: {
+                font: '陪伴孩子，没有人能代替父母。我们在这里为家长们推荐三本书： 《新父母学校》《黄帝内经》《孩子你慢慢来》。这三本书有一个共同的关键词：道法自然。 它们传递给您的也许只是一个方法、一种思路、一点理念。我们真正希望的是家长们能选择 顺应孩子天性的方式，让孩子自然、健康而又生机勃勃地生长。'
+            },
+        })
+        const app2 = new Vue({
+            el: '.teabook',
+            data: {
+                book: [{
+                    img: '../img/book/xfmxx.jpg',
+                    name: '新父母学校',
+                    data1: 6,
+                    data2: 9
+                }, {
+                    img: '../img/book/hdnj.jpg',
+                    name: '皇帝内经',
+                    data1: 16,
+                    data2: 35
+                }, {
+                    img: '../img/book/xlxysh.jpg',
+                    name: '心理学与生活',
+                    data1: 5,
+                    data2: 5
+                }, ],
+            },
+        })
+    </script>
+</body>

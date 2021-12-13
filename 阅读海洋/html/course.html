@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>阅读海洋</title>
+    <link rel="stylesheet" href="../css/course.css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+    <div id="app">
+        <img class="ocean" src="../img/ocean.jpg" alt="">
+        <div class="black">
+            <nav>
+                <img src="../img/logo.png" alt="no found">
+                <div class="user">
+                    <img src="../img/tx.jpg">
+                </div>
+            </nav>
+        </div>
+
+        <!-- <div class="search">
+            <div class="search-font">搜索全部图书</div>
+            <div class="search-box">
+                <input type="text">
+                <button></button>
+            </div>
+        </div> -->
+
+    </div>
+    <div class="select">
+        <a href="homePage.html">首页</a>
+        <a href="task.html">发布任务</a>
+        <a href="recommend.html">书香门第</a>
+        <a href="community.html">作品社区</a>
+        <a href="#">海洋世界</a>
+        <a href="course.html" style="color: #0064f9;">名师微课</a>
+        <a href="answer.html">故事新编</a>
+        <a href="teacherRead.html">教师阅读</a>
+    </div>
+    <div class="selectbook">
+        <div class="selectbox">
+            <div class="selecttype">美文欣赏</div>
+            <div class="bottom"></div>
+        </div>
+        <div class="selectbox">
+            <div class="selecttype">阅读方法</div>
+        </div>
+        <div class="selectbox">
+            <div class="selecttype">故事书籍</div>
+        </div>
+
+    </div>
+    <div class="selectType">
+        <div class="typeleft">全部年纪:
+            <select name="" id="">
+                <option value="">1-2年级</option>
+                <option value="">3-4年级</option>
+                <option value="">5-6年级</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="bookpage">
+        <div id="pages">
+            <ul>
+                <li v-for="user in newUser" :key="user.id">
+                    <div class="bookbox">
+
+                        <div class="bookname">{{user.name}}</div>
+
+                    </div>
+
+                </li>
+            </ul>
+
+            <!--  这里绑定总页数    父组件传过来参数 复用件接收后判断如果为true执行css样式  -->
+            <p-pagination :pages=showUsers @click-pag="fn" :page='uPage'> </p-pagination>
+
+        </div>
+    </div>
+
+
+    <script src="../vue.js"></script>
+
+    <script>
+        Vue.component("p-pagination", {
+            template: `
+                        <div class="pagination">    
+                            <a href="javascript:;" @click='deduction'>上一页</a>  
+
+                            <a href="javascript:;" v-for="pag in pages" @click="goto(pag)"                         
+                            :class="{active: pag === page}"
+                            >{{pag}}</a>
+
+                            <a href="javascript:;" @click='score'>下一页</a>   
+                        </div>                                           
+                      `,
+            props: ['pages', 'page'], //接收参数 
+            methods: {
+                goto(pag) { //点击按钮给父组件传参  这里的参数也可以直接使用pag
+                    this.$emit("click-pag", pag);
+                    // console.log(this.pages);
+                    console.log(this.page)
+                },
+                // 上一页
+                deduction() {
+                    if (this.page - 1 > 0) {
+                        this.$emit("click-pag", this.page - 1);
+                    } else {
+                        this.page = 1
+                    }
+                },
+                // 下一页
+                score() { //若果是最后一页 
+                    if (this.page >= this.pages) {
+                        this.page = this.pages
+                    } else {
+                        this.$emit("click-pag", this.page + 1);
+                    }
+                },
+            }
+        });
+
+        const app = new Vue({
+            el: '#pages',
+            data: {
+                users: [{
+                        id: 1,
+                        name: '写给云（作者：珠海市香洲区景区小学-严杏）',
+                    }, {
+                        id: 2,
+                        name: '听听那寂静（作者：珠海市香洲区实验学校-黄丽君）',
+
+                    }, {
+                        id: 3,
+                        name: '大自然的语言（作者：珠海市香洲区实验学校-黄丽君）',
+
+                    }, {
+                        id: 4,
+                        name: '太阳的话（作者：高栏港区金洲小学-黄译贤）',
+
+                    }, {
+                        id: 5,
+                        name: '写给云（作者：珠海市香洲区景区小学-严杏）',
+                    }, {
+                        id: 6,
+                        name: '听听那寂静（作者：珠海市香洲区实验学校-黄丽君）',
+
+                    }, {
+                        id: 7,
+                        name: '大自然的语言（作者：珠海市香洲区实验学校-黄丽君）',
+
+                    }, {
+                        id: 8,
+                        name: '太阳的话（作者：高栏港区金洲小学-黄译贤）',
+
+                    }, {
+                        id: 9,
+                        name: '写给云（作者：珠海市香洲区景区小学-严杏）',
+                    }, {
+                        id: 10,
+                        name: '听听那寂静（作者：珠海市香洲区实验学校-黄丽君）',
+
+                    }, {
+                        id: 11,
+                        name: '大自然的语言（作者：珠海市香洲区实验学校-黄丽君）',
+
+                    }, {
+                        id: 12,
+                        name: '太阳的话（作者：高栏港区金洲小学-黄译贤）',
+
+                    },
+
+                ],
+                uPage: 1, //当前页
+                perPage: 10, //每页显示多少条
+            },
+            computed: {
+                // 获取总页数 
+                showUsers: {
+                    get() {
+                        return Math.ceil(this.users.length / this.perPage);
+                    }
+                },
+                newUser: { //渲染到页面
+                    get() { // 分割数据
+                        return JSON.parse(JSON.stringify(this.users)).splice((this.uPage - 1) * this.perPage, this.perPage)
+                    }
+                },
+            },
+
+            methods: {
+                fn(n) {
+                    // console.log(n)
+                    this.uPage = n; //接收到 子组件传过来的数据 修改data的显示
+                },
+
+            },
+        })
+        const app2 = new Vue({
+            el: '.typeright',
+            data: {
+                booktype: ['诗歌', '自然', '绘本', '童话', '神话', '文史', '教学', '小说', '名著', '名人传记', ]
+
+
+            }
+        })
+    </script>
+</body>

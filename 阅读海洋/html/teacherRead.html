@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>阅读海洋</title>
+    <link rel="stylesheet" href="../css/teacherRead.css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+    <div id="app">
+        <img class="ocean" src="../img/ocean.jpg" alt="">
+        <div class="black">
+            <nav>
+                <img src="../img/logo.png" alt="no found">
+                <div class="user">
+                    <img src="../img/tx.jpg">
+                </div>
+            </nav>
+        </div>
+
+        <!-- <div class="search">
+            <div class="search-font">搜索图书</div>
+            <div class="search-box">
+                <input type="text">
+                <button></button>
+            </div>
+        </div> -->
+
+    </div>
+    <div class="select">
+        <a href="homePage.html">首页</a>
+        <a href="task.html">发布任务</a>
+        <a href="recommend.html">书香门第</a>
+        <a href="community.html">作品社区</a>
+        <a href="#">海洋世界</a>
+        <a href="course.html">名师微课</a>
+        <a href="answer.html">故事新编</a>
+        <a href="teacherRead.html" style="color: #0064f9;">教师阅读</a>
+    </div>
+    <div class="box">
+        <div class="word">推荐词：
+            <span>{{font}}</span>
+        </div>
+    </div>
+    <div class="parent">
+        <a href="parentRead.html"><img src="../img/change.png" alt="">
+
+            <div class="parentinfo">家长阅读情况</div>
+        </a>
+    </div>
+    <div class="teabook">
+        <ul>
+            <li v-for="item2 in book">
+                <img :src="item2.img" alt="" />
+                <div>
+                    <div class="font-1">{{item2.name}}</div>
+                    <div class="flex">
+                        <div class="font-2">讨论：{{item2.data1}}</div>
+                        <div class="font-2" style="margin-left: 5px;">点赞：{{item2.data2}}</div>
+                    </div>
+                </div>
+
+
+            </li>
+        </ul>
+    </div>
+    <script src="../vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '.box',
+            data: {
+                font: '“四书五经”是中华优秀传统文化的经典文本，而《论语》、《孟子》、《大学》、《中庸》 “四书”是教师提升文化修养，涵养人文精神的必读经典。五经之中，《诗经》居首；《周易》 貌似驳杂，其实“易简”。《论语》教人智、仁、勇，以“仁”为核心。《论语》重点讲“仁”，《孟子》 重点讲“义”，两者合成“仁义”与“养气”的教育。《大学》教人明明德，亲民，止于至善。《中庸》教人 “中庸之道”。《道德经》、《庄子》构成中国道法自然的自然教育。《教育哲学》回归古典，融汇中西， 贯通古今，从教育哲学视角引领教师形成专业阅读的宏观视野。'
+            },
+        })
+        const app2 = new Vue({
+            el: '.teabook',
+            data: {
+                book: [{
+                    img: '../img/book/ly.jpg',
+                    name: '论语',
+                    data1: 1,
+                    data2: 0
+                }, {
+                    img: '../img/book/mz.jpg',
+                    name: '孟子',
+                    data1: 0,
+                    data2: 0
+                }, {
+                    img: '../img/book/zydx.jpg',
+                    name: '中庸大学',
+                    data1: 0,
+                    data2: 0
+                }, {
+                    img: '../img/book/sj.jpg',
+                    name: '诗经',
+                    data1: 0,
+                    data2: 0
+                }, {
+                    img: '../img/book/zy.jpg',
+                    name: '周易',
+                    data1: 0,
+                    data2: 0
+                }, {
+                    img: '../img/book/ddj.jpg',
+                    name: '道德经',
+                    data1: 0,
+                    data2: 0
+                }, {
+                    img: '../img/book/zz.jpg',
+                    name: '庄子',
+                    data1: 0,
+                    data2: 0
+                }, {
+                    img: '../img/book/jyzx.jpg',
+                    name: '教育哲学',
+                    data1: 1,
+                    data2: 0
+                }, {
+                    img: '../img/book/yyz.jpg',
+                    name: '阴阳传习录 象山物语',
+                    data1: 0,
+                    data2: 0
+                }, ],
+            },
+        })
+    </script>
+</body>

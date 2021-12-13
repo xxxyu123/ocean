@@ -1,0 +1,360 @@
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+body {
+    margin: 0;
+    background: hsl(0, 41%, 97%);
+    white-space: nowrap;
+    /* background: hsl(0, 41%, 97%); */
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, roboto, oxygen, cantarell, helvetica neue, ubuntu, sans-serif;
+}
+
+.fixed {
+    width: 80px;
+    height: 100px;
+    background: url() no-repeat center;
+    background-size: cover;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+}
+
+#app {
+    width: 100%;
+    height: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 4px 0 rgba(121, 146, 185, .54);
+}
+
+.ocean {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+}
+
+.black {
+    width: 100%;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.37);
+}
+
+nav {
+    width: 100%;
+    height: 70px;
+}
+
+.search {
+    width: 50%;
+    height: auto;
+    margin-top: 120px;
+    border-radius: 6px;
+}
+
+.search-font {
+    width: 650px;
+    height: 50px;
+    font-size: 30px;
+    color: white;
+    margin: 0 auto;
+    letter-spacing: 1.2px;
+}
+
+.search-box {
+    width: 650px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: auto;
+}
+
+.search-box input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: 0px solid;
+    text-indent: 20px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 4%), 0 4px 16px 0 rgb(44 50 65 / 8%);
+}
+
+.search-box button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    position: absolute;
+    right: 20px;
+    background: url(../img/search.png)no-repeat;
+}
+
+#app>div,
+nav {
+    position: absolute;
+    top: 0;
+}
+
+nav img {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+nav>img {
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.user img {
+    border-radius: 50%;
+    border: 3px white solid;
+    box-shadow: 0 2px 4px 0 rgba(121, 146, 185, .54);
+}
+
+.user {
+    float: right;
+    position: absolute;
+    right: 60px;
+    margin-top: 20px;
+}
+
+.select {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.select a {
+    color: #5e5e5e;
+    font-size: 19px;
+    font-weight: 600;
+    margin-right: 20px;
+    text-align: center;
+    flex-wrap: nowrap;
+}
+
+@media screen and (max-width: 700px) {
+    .select {
+        flex-direction: column;
+        width: 80%;
+        margin: 20px auto;
+        background-color: rgb(49, 49, 49);
+        border-radius: 6px;
+        padding: 10px 0 10px 0;
+    }
+    .select>a {
+        flex-direction: column;
+        margin: 5px auto;
+    }
+    .search-box {
+        width: 100%;
+    }
+    .search-font {
+        width: 100%;
+    }
+    .right {
+        margin: 20px auto;
+        padding-left: 0;
+    }
+    .list-1,
+    .list-2 {
+        height: 170px;
+        margin-left: 0;
+    }
+    .overflow-y {
+        width: 70%;
+        height: 100px;
+    }
+    .fixed {
+        display: none;
+    }
+    .list-title {
+        margin: 0;
+    }
+    .myClass {
+        top: 10px;
+        font-size: 15px;
+        left: 10px;
+    }
+}
+
+.taskInfo {
+    width: 60%;
+    margin: 50px auto;
+    height: auto;
+    padding: 30px 60px;
+    box-sizing: border-box;
+    background-color: white;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px 0 rgb(121 146 185 / 54%);
+}
+
+.infoTitle {
+    font-size: 30px;
+    letter-spacing: 6.3px;
+    color: rgba(0, 0, 0, 0.685);
+}
+
+.infoFont {
+    letter-spacing: 1.1px;
+    color: #2b2b2b;
+    margin-top: 30px;
+}
+
+.infoText {
+    width: 100%;
+    height: 35px;
+    text-indent: 10px;
+    border: 2px solid #9e9e9e;
+    border-radius: 4px;
+    margin-top: 30px;
+}
+
+.clearfloat {
+    clear: both;
+}
+
+.infolist label {
+    float: left;
+    display: block;
+    width: 25%;
+    height: 40px;
+    flex-wrap: wrap;
+    white-space: nowrap;
+}
+
+.textarea {
+    width: 100%;
+    height: 150px;
+    resize: none;
+    text-indent: 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    padding-top: 10px;
+    margin-top: 30px;
+}
+
+.taskmember {
+    display: flex;
+    width: 100%;
+    height: 300px;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px black solid;
+}
+
+.memberClass {
+    width: 15%;
+    overflow-y: auto;
+    height: 250px;
+    -ms-overflow-style: none;
+}
+
+.memberClass ul,
+.student ul {
+    padding: 0;
+    margin: 0;
+}
+
+.classbox {
+    width: 100%;
+    text-align: center;
+    margin: 3px 0;
+    background-color: rgba(0, 0, 0, 0.699);
+    color: white;
+    padding: 5px 0;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.student {
+    width: 100%;
+    height: 200px;
+    overflow-y: auto;
+}
+
+.memSearch {
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+
+.member {
+    width: 85%;
+    height: 250px;
+}
+
+.student li {
+    float: left;
+    width: 120px;
+    margin: 5px;
+}
+
+.student label {
+    width: 20%;
+    margin: 20px;
+}
+
+.searchbox {
+    position: absolute;
+    right: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.searchbox input {
+    text-indent: 10px;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.searchbox button {
+    position: absolute;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    border: none;
+}
+
+.updataBook {
+    background: url(../img/add.png)no-repeat center;
+    width: 100px;
+    height: 100px;
+    border: none;
+    margin: 20px;
+}
+
+.selectTime {
+    display: flex;
+    justify-content: center;
+}
+
+.time {
+    width: 40%;
+    margin: 50px;
+}
+
+.up {
+    display: flex;
+    justify-content: center;
+}
+
+.uploading {
+    width: 100px;
+    height: 40px;
+    background-color: #232a34;
+    color: #ffffff;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgb(121 146 185 / 54%);
+}

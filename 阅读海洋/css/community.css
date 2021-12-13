@@ -1,0 +1,363 @@
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+body {
+    margin: 0;
+    background: hsl(0, 41%, 97%);
+    white-space: nowrap;
+    /* background: hsl(0, 41%, 97%); */
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, roboto, oxygen, cantarell, helvetica neue, ubuntu, sans-serif;
+}
+
+.fixed {
+    width: 80px;
+    height: 100px;
+    background: url() no-repeat center;
+    background-size: cover;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+}
+
+#app {
+    width: 100%;
+    height: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 4px 0 rgba(121, 146, 185, .54);
+}
+
+.ocean {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+}
+
+.black {
+    width: 100%;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.37);
+}
+
+nav {
+    width: 100%;
+    height: 70px;
+}
+
+.search {
+    width: 50%;
+    height: auto;
+    margin-top: 120px;
+    border-radius: 6px;
+}
+
+.search-font {
+    width: 650px;
+    height: 50px;
+    font-size: 30px;
+    color: white;
+    margin: 0 auto;
+    letter-spacing: 1.2px;
+}
+
+.search-box {
+    width: 650px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: auto;
+}
+
+.search-box input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: 0px solid;
+    text-indent: 20px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 4%), 0 4px 16px 0 rgb(44 50 65 / 8%);
+}
+
+.search-box button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    position: absolute;
+    right: 20px;
+    background: url(../img/search.png)no-repeat;
+}
+
+#app>div,
+nav {
+    position: absolute;
+    top: 0;
+}
+
+nav img {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+nav>img {
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.user img {
+    border-radius: 50%;
+    border: 3px white solid;
+    box-shadow: 0 2px 4px 0 rgba(121, 146, 185, .54);
+}
+
+.user {
+    float: right;
+    position: absolute;
+    right: 60px;
+    margin-top: 20px;
+}
+
+.select {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.select a {
+    color: #5e5e5e;
+    font-size: 19px;
+    font-weight: 600;
+    margin-right: 20px;
+    text-align: center;
+    flex-wrap: nowrap;
+}
+
+@media screen and (max-width: 700px) {
+    .select {
+        flex-direction: column;
+        width: 80%;
+        margin: 20px auto;
+        background-color: rgb(49, 49, 49);
+        border-radius: 6px;
+        padding: 10px 0 10px 0;
+    }
+    .select>a {
+        flex-direction: column;
+        margin: 5px auto;
+    }
+    .search-box {
+        width: 100%;
+    }
+    .search-font {
+        width: 100%;
+    }
+    .right {
+        margin: 20px auto;
+        padding-left: 0;
+    }
+    .list-1,
+    .list-2 {
+        height: 170px;
+        margin-left: 0;
+    }
+    .overflow-y {
+        width: 70%;
+        height: 100px;
+    }
+    .fixed {
+        display: none;
+    }
+    .list-title {
+        margin: 0;
+    }
+    .myClass {
+        top: 10px;
+        font-size: 15px;
+        left: 10px;
+    }
+}
+
+.pagination {
+    margin: 20px 0;
+}
+
+.pagination a {
+    padding: 5px 15px;
+    border: 1px solid yellowgreen;
+    text-decoration: none;
+    margin: 5px;
+}
+
+
+/* 点按钮变色 这里只是提前写好样式 如果为true在会变色 */
+
+.pagination a.active {
+    background: #3ba9ff;
+    color: white;
+}
+
+.selectbook {
+    background-color: white;
+    width: 60%;
+    height: 55px;
+    margin: 30px auto 15px;
+    box-sizing: border-box;
+    padding: 17px 30px;
+    display: flex;
+    box-shadow: 0 2px 4px 0 rgb(121 146 185 / 54%);
+}
+
+.selectbox {
+    margin: 0px 20px 0 0;
+}
+
+.selecttype {
+    font-size: 15px;
+    font-weight: 600;
+    color: #5e5e5e;
+}
+
+.bottom {
+    width: 40px;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.623);
+    margin: 6px auto 0;
+}
+
+.selectType {
+    width: 60%;
+    margin: 40px auto 0;
+    display: flex;
+    align-items: center;
+}
+
+.typeleft {
+    width: 30%;
+    height: 25px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+    color: #5e5e5e;
+    font: 600 14px normal;
+}
+
+.typeleft select {
+    margin-left: 10px;
+}
+
+.typeright {
+    width: 100%;
+}
+
+.typeright ul {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.typeright li {
+    float: right;
+    font-size: 14px;
+    font-weight: 550;
+    color: #5e5e5e;
+    padding: 5px 10px;
+}
+
+.bookpage {
+    width: 60%;
+    background-color: white;
+    margin: 15px auto;
+    padding: 35px 20px 20px 20px;
+    box-sizing: border-box;
+    box-shadow: rgb(121 146 185 / 54%) 0px 2px 4px 0px;
+}
+
+.typeright .all {
+    color: white;
+    background-color: #5e5e5e;
+    border-radius: 10px;
+}
+
+.pages {
+    width: 90%;
+    margin: auto;
+}
+
+.pagination {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination a {
+    padding: 3px 10px;
+    border: 1px solid #ddd;
+    margin: 5px;
+    color: black;
+    font: 550 15px normal;
+}
+
+
+/* 点按钮变色 这里只是提前写好样式 如果为true在会变色 */
+
+.pagination a.active {
+    background: #3ba9ff;
+    color: white;
+}
+
+#pages ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+}
+
+#pages li {
+    flex: 33%;
+    max-width: 33%;
+}
+
+#pages img {
+    max-width: 80px;
+    max-height: 100px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px 0 rgb(121 146 185 / 54%);
+}
+
+.bookbox {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px;
+    font: 500 14px normal;
+    letter-spacing: 1.1px;
+    display: flex;
+}
+
+.bookname {
+    width: auto;
+    overflow: hidden;
+    font: 550 16px normal;
+    letter-spacing: 1.1px;
+    margin-bottom: 15px;
+    max-width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.imgright {
+    padding: 20px;
+}
+
+.imgright span {
+    font: 500 13px normal;
+}
